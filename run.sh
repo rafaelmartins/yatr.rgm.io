@@ -1,4 +1,9 @@
 #!/bin/sh
+#
+# Add this to your .travis.yml:
+#
+#     script: curl -sSf https://yatr.rgm.io/run.sh | bash
+#
 
 set -e
 
