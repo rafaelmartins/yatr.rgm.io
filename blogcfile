@@ -1,0 +1,16 @@
+[global]
+AUTHOR_NAME = Rafael G. Martins
+AUTHOR_EMAIL = rafael@rafaelmartins.eng.br
+SITE_TITLE = yatr
+SITE_TAGLINE = Yet Another Travis-CI Runner.
+BASE_DOMAIN = https://yatr.rgm.io
+
+[settings]
+locale = en_US.utf8
+post_prefix = news
+pagination_prefix = news/page
+index_prefix = news
+posts_per_page = 4
+
+[copy]
+run.sh
