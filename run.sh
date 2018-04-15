@@ -7,6 +7,17 @@
 
 set -e
 
+do_sha512sum() {
+    case "$(uname -s)" in
+        Darwin)
+            gsha512sum "$@"
+            ;;
+        *)
+            sha512sum "$@"
+            ;;
+    esac
+}
+
 I() {
     if [[ "x${TRAVIS}" != "xtrue" ]]; then
         echo "Not running on Travis-CI"
@@ -25,7 +36,7 @@ I() {
     curl --fail --silent --output "${archive}" "https://distfiles.rgm.io/yatr/${p}/${archive}"
     curl --fail --silent --output "${archive}.sha512" "https://distfiles.rgm.io/yatr/${p}/${archive}.sha512"
 
-    sha512sum --check --status "${archive}.sha512"
+    do_sha512sum --check --status "${archive}.sha512"
     tar --extract --file="${archive}"
 
     exec "${folder}/yatr"
