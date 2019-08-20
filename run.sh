@@ -19,12 +19,6 @@ do_sha512sum() {
 }
 
 I() {
-    if [[ "x${TRAVIS}" != "xtrue" ]]; then
-        echo "Not running on Travis-CI"
-        exit 1
-    fi
-
-    # travis only supports amd64
     local arch="amd64"
     local os="$(uname -s | tr '[:upper:]' '[:lower:]')"
 
