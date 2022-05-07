@@ -23,8 +23,8 @@ I() {
     local os="$(uname -s | tr '[:upper:]' '[:lower:]')"
 
     local index="$(curl --silent https://distfiles.rgm.io/yatr/LATEST/)"
-    local archive="$(echo "${index}" | sed -n "s/.*\(yatr-${os}-${arch}-.*\)\.sha512.*/\1/p")"
-    local folder="$(echo "${index}" | sed -n "s/.*\(yatr-${os}-${arch}-.*\)\.tar.*\.sha512.*/\1/p")"
+    local archive="$(echo "${index}" | sed -n "s/.*\"\(yatr-${os}-${arch}.*\)\.sha512\".*/\1/p")"
+    local folder="$(echo "${index}" | sed -n "s/.*\"\(yatr-${os}-${arch}-.*\)\.tar.*\.sha512\".*/\1/p")"
     local p="$(echo "${folder}" | sed "s/yatr-${os}-${arch}-\(.*\)/yatr-\1/")"
 
     curl --fail --silent --output "${archive}" "https://distfiles.rgm.io/yatr/${p}/${archive}"
